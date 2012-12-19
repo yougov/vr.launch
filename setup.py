@@ -11,6 +11,9 @@ setup_params = dict(
 	packages=setuptools.find_packages(),
 	namespace_packages=['yg'],
 	zip_safe=False,
+	install_requires=[
+		'pyyaml',
+	],
 	setup_requires=[
 		'hgtools',
 	],
