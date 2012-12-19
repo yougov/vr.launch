@@ -15,3 +15,8 @@ def add_config_arg(parser):
     parser.add_argument('-c', '--config', help="Filename for YAML config",
         action=MergeDictAction, default=config.ConfigDict(),
         type=config.ConfigDict.from_yaml)
+
+def get_parser():
+    parser = argparse.ArgumentParser()
+    add_config_arg(parser)
+    return parser
