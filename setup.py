@@ -14,6 +14,7 @@ setup_params = dict(
 	install_requires=[
 		'pyyaml',
 		'jaraco.util',
+		'six',
 	],
 	setup_requires=[
 		'hgtools',
