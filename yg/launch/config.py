@@ -1,5 +1,6 @@
 import os
 import re
+import copy
 
 import six
 
@@ -22,6 +23,31 @@ class ConfigDict(jaraco.util.dictlib.ItemsAsAttributes, dict):
 	def to_yaml(self, filename):
 		with open(filename, 'w') as f:
 			yaml.dump(self, f)
+
+def obscure(src, sensitive_keys=['password']):
+	"""
+	Return a deep copy of src (MutableMapping) with sensitive keys obscured.
+
+	>>> nested = dict(password='top secret')
+	>>> d = dict(a=1, b=2, password='very secret', nested=nested)
+	>>> obscure(d)['a']
+	1
+	>>> obscure(d)['password']
+	'********'
+	>>> obscure(d)['nested']['password']
+	'********'
+
+	>>> type(obscure(ConfigDict(d)))
+	<class 'yg.launch.config.ConfigDict'>
+	"""
+	result = copy.copy(src)
+
+	for key, value in six.iteritems(result):
+		if isinstance(value, dict):
+			result[key] = obscure(value)
+		elif key in sensitive_keys:
+			result[key] = '********'
+	return result
 
 def env_substitute(config, key):
 	"""
