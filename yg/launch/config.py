@@ -44,7 +44,7 @@ def obscure(src, sensitive_keys=['password']):
 
 	for key, value in six.iteritems(result):
 		if isinstance(value, dict):
-			result[key] = obscure(value)
+			result[key] = obscure(value, sensitive_keys)
 		elif key in sensitive_keys:
 			result[key] = '********'
 	return result
