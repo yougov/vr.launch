@@ -20,6 +20,15 @@ class ConfigDict(jaraco.util.dictlib.ItemsAsAttributes, dict):
 	def from_yaml_stream(cls, stream):
 		return cls(yaml.load(stream))
 
+	@classmethod
+	def from_velociraptor(cls, fallback=None):
+		"""
+		Load the config from file indicated by APP_SETTINGS_YAML or the
+		fallback filepath (if it is a file). Return None if no file is found.
+		"""
+		filename = os.environ.get('APP_SETTINGS_YAML', fallback) or ''
+		return cls.from_yaml(filename) if os.path.isfile(filename) else None
+
 	def to_yaml(self, filename):
 		with open(filename, 'w') as f:
 			yaml.dump(self, f)
