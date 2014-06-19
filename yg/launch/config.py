@@ -33,6 +33,14 @@ class ConfigDict(jaraco.util.dictlib.ItemsAsAttributes, dict):
 		with open(filename, 'w') as f:
 			yaml.dump(self, f)
 
+	def apply_environment_overrides(self):
+		"""
+		Allow the environment to override keys in self if the vars match
+		keys already present.
+		"""
+		for key in self:
+			self[key] = os.environ.get(key, self[key])
+
 def obscure(src, sensitive_keys=['password']):
 	"""
 	Return a deep copy of src (MutableMapping) with sensitive keys obscured.
