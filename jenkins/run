@@ -1,2 +1,2 @@
 #!/bin/bash
-python setup.py ptr --index-url=https://cheese.yougov.net --addopts='--junitxml'
+python setup.py ptr --index-url=https://cheese.yougov.net --addopts='--junitxml="test results.xml"'
