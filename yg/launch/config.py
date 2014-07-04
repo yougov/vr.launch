@@ -37,6 +37,12 @@ class ConfigDict(jaraco.util.dictlib.ItemsAsAttributes, dict):
 		"""
 		Allow the environment to override keys in self if the vars match
 		keys already present.
+
+		>>> d = ConfigDict(port_test='8010')
+		>>> os.environ['PORT_TEST'] = '5000'
+		>>> d.apply_environment_overrides()
+		>>> d['port_test']
+		'5000'
 		"""
 		for key in self:
 			self[key] = os.environ.get(key, self[key])
