@@ -38,14 +38,23 @@ class ConfigDict(jaraco.util.dictlib.ItemsAsAttributes, dict):
 		Allow the environment to override keys in self if the vars match
 		keys already present.
 
-		>>> d = ConfigDict(port_test='8010')
+		Consider if PORT_TEST is defined thusly in the environment:
 		>>> os.environ['PORT_TEST'] = '5000'
+
+		>>> d = ConfigDict(port_test='8010')
 		>>> d.apply_environment_overrides()
 		>>> d['port_test']
 		'5000'
+
+		The method should retain the original type.
+		>>> d = ConfigDict(port_test=8010)
+		>>> d.apply_environment_overrides()
+		>>> d['port_test']
+		5000
 		"""
 		for key in self:
-			self[key] = os.environ.get(key, self[key])
+			orig_type = type(self[key])
+			self[key] = orig_type(os.environ.get(key, self[key]))
 
 def obscure(src, sensitive_keys=['password']):
 	"""
