@@ -1,1 +1,2 @@
-#!/usr/bin/env python setup.py ptr --index-url=https://cheese.yougov.net
+#!/bin/bash
+python setup.py ptr --index-url=https://cheese.yougov.net
