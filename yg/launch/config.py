@@ -64,7 +64,7 @@ class ConfigDict(jaraco.util.dictlib.ItemsAsAttributes, dict):
 	def _case_insensitive_environ():
 		if platform.system() == 'Windows':
 			return os.environ
-		return jaraco.util.FoldedCaseKeyedDict(os.environ)
+		return jaraco.util.dictlib.FoldedCaseKeyedDict(os.environ)
 
 
 def obscure(src, sensitive_keys=['password']):
