@@ -1,6 +1,7 @@
 import os
 import re
 import copy
+import platform
 
 import six
 
@@ -53,9 +54,18 @@ class ConfigDict(jaraco.util.dictlib.ItemsAsAttributes, dict):
 		>>> d['port_test']
 		'5000'
 		"""
-		matching_keys = [key for key in self if key in os.environ]
+		environ = self._case_insensitive_environ()
+
+		matching_keys = [key for key in self if key in environ]
 		for key in matching_keys:
-			self[key] = yaml.safe_load(os.environ[key])
+			self[key] = yaml.safe_load(environ[key])
+
+	@staticmethod
+	def _case_insensitive_environ():
+		if platform.system() == 'Windows':
+			return os.environ
+		return jaraco.util.FoldedCaseKeyedDict(os.environ)
+
 
 def obscure(src, sensitive_keys=['password']):
 	"""
