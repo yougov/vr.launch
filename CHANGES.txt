@@ -1,0 +1,8 @@
+2.0
+===
+
+For a brief time (1.6), yg.launch supported inferring the type of
+overridden values in apply_environment_overrides from the original type.
+
+Now instead, environment variables are treated like YAML instead. This
+approach is safer and allows for more complex values.

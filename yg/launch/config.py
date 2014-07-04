@@ -44,17 +44,18 @@ class ConfigDict(jaraco.util.dictlib.ItemsAsAttributes, dict):
 		>>> d = ConfigDict(port_test='8010')
 		>>> d.apply_environment_overrides()
 		>>> d['port_test']
-		'5000'
+		5000
 
-		The method should retain the original type.
+		Environment overrides should decode yaml.
+		>>> os.environ['PORT_TEST'] = '"5000"'
 		>>> d = ConfigDict(port_test=8010)
 		>>> d.apply_environment_overrides()
 		>>> d['port_test']
-		5000
+		'5000'
 		"""
-		for key in self:
-			orig_type = type(self[key])
-			self[key] = orig_type(os.environ.get(key, self[key]))
+		matching_keys = [key for key in self if key in os.environ]
+		for key in matching_keys:
+			self[key] = yaml.safe_load(os.environ[key])
 
 def obscure(src, sensitive_keys=['password']):
 	"""
