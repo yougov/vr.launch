@@ -4,7 +4,7 @@ import setuptools
 
 setup_params = dict(
 	name='yg.launch',
-	use_hg_version=True,
+	use_scm_version=True,
 	author="Jason R. Coombs",
 	author_email="jaraco@jaraco.com",
 	url="https://yougov.kilnhg.com/Code/Repositories/support/yg-launch",
@@ -17,8 +17,8 @@ setup_params = dict(
 		'six',
 	],
 	setup_requires=[
-		'hgtools',
-		'pytest-runner',
+		'setuptools_scm',
+		'pytest-runner>=2.1',
 	],
 	tests_require=[
 		'pytest',
