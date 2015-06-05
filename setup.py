@@ -13,7 +13,7 @@ setup_params = dict(
 	zip_safe=False,
 	install_requires=[
 		'pyyaml',
-		'jaraco.util',
+		'jaraco.collections',
 		'six',
 	],
 	setup_requires=[

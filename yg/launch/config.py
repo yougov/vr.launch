@@ -5,9 +5,9 @@ import copy
 import six
 
 import yaml
-import jaraco.util.dictlib
+import jaraco.collections
 
-class ConfigDict(jaraco.util.dictlib.ItemsAsAttributes, dict):
+class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
 	"""
 	A simple config dictionary implementation with YAML helpers
 	"""
