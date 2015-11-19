@@ -1,3 +1,8 @@
+2.2.2
+=====
+
+Exclude jaraco.collections 1.2 (bad release).
+
 2.1
 ===
 
