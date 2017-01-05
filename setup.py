@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-# Project skeleton maintained at https://github.com/jaraco/skeleton
+# Project skeleton maintained at kiln://support/skeleton
+# based on https://github.com/jaraco/skeleton
 
 import io
 import sys
@@ -13,17 +14,20 @@ with io.open('README.rst', encoding='utf-8') as readme:
 needs_wheel = {'release', 'bdist_wheel', 'dists'}.intersection(sys.argv)
 wheel = ['wheel'] if needs_wheel else []
 
+group = ''
 name = 'skeleton'
+dashname = name.replace('.', '-')
 description = ''
+url_tmpl = 'https://yougov.kilnhg.com/Code/Repositories/{group}/{dashname}'
 
 params = dict(
 	name=name,
 	use_scm_version=True,
-	author="Jason R. Coombs",
-	author_email="jaraco@jaraco.com",
+	author="YouGov, Plc.",
+	author_email="dev@yougov.com",
 	description=description or name,
 	long_description=long_description,
-	url="https://github.com/jaraco/" + name,
+	url=url_tmpl.format(**locals()),
 	packages=setuptools.find_packages(),
 	include_package_data=True,
 	namespace_packages=name.split('.')[:-1],
