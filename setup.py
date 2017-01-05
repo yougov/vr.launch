@@ -9,7 +9,7 @@ import sys
 import setuptools
 
 with io.open('README.rst', encoding='utf-8') as readme:
-	long_description = readme.read()
+    long_description = readme.read()
 
 needs_wheel = {'release', 'bdist_wheel', 'dists'}.intersection(sys.argv)
 wheel = ['wheel'] if needs_wheel else []
@@ -21,32 +21,32 @@ description = ''
 url_tmpl = 'https://yougov.kilnhg.com/Code/Repositories/{group}/{dashname}'
 
 params = dict(
-	name=name,
-	use_scm_version=True,
-	author="YouGov, Plc.",
-	author_email="dev@yougov.com",
-	description=description or name,
-	long_description=long_description,
-	url=url_tmpl.format(**locals()),
-	packages=setuptools.find_packages(),
-	include_package_data=True,
-	namespace_packages=name.split('.')[:-1],
-	install_requires=[
-	],
-	extras_require={
-	},
-	setup_requires=[
-		'setuptools_scm>=1.15.0',
-	] + wheel,
-	classifiers=[
-		"Development Status :: 5 - Production/Stable",
-		"Intended Audience :: Developers",
-		"License :: OSI Approved :: MIT License",
-		"Programming Language :: Python :: 2.7",
-		"Programming Language :: Python :: 3",
-	],
-	entry_points={
-	},
+    name=name,
+    use_scm_version=True,
+    author="YouGov, Plc.",
+    author_email="dev@yougov.com",
+    description=description or name,
+    long_description=long_description,
+    url=url_tmpl.format(**locals()),
+    packages=setuptools.find_packages(),
+    include_package_data=True,
+    namespace_packages=name.split('.')[:-1],
+    install_requires=[
+    ],
+    extras_require={
+    },
+    setup_requires=[
+        'setuptools_scm>=1.15.0',
+    ] + wheel,
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+    ],
+    entry_points={
+    },
 )
 if __name__ == '__main__':
-	setuptools.setup(**params)
+    setuptools.setup(**params)
