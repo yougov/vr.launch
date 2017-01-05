@@ -1,0 +1,4 @@
+#!/bin/bash -xe
+
+python3 -m pip install --user tox
+python3 -m tox
