@@ -13,6 +13,7 @@ link_files = {
     '../CHANGES.rst': dict(
         using=dict(
             GH='https://github.com',
+            devpi='https://devpi.yougov.net/root/yg',
         ),
         replace=[
             dict(
