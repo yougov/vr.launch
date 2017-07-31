@@ -12,9 +12,8 @@ with io.open('README.rst', encoding='utf-8') as readme:
 
 group = ''
 name = 'skeleton'
-dashname = name.replace('.', '-')
 description = ''
-url_tmpl = 'https://yougov.kilnhg.com/Code/Repositories/{group}/{dashname}'
+url_tmpl = 'https://gitlab.yougov.net/{group}/{name}'
 
 params = dict(
     name=name,
