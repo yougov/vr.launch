@@ -16,6 +16,7 @@ link_files = {
             devpi='https://devpi.yougov.net/root/yg',
             kiln='https://yougov.kilnhg.com/Code/Repositories',
             fogbugz='https://yougov.fogbugz.com',
+            gitlab='https://gitlab.yougov.net',
         ),
         replace=[
             dict(
