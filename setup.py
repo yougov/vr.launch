@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Project skeleton maintained at kiln://support/skeleton
+# Project skeleton maintained at gitlab://support/skeleton
 # based on https://github.com/jaraco/skeleton
 
 import io
