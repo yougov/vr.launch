@@ -14,6 +14,11 @@ group = ''
 name = 'skeleton'
 description = ''
 url_tmpl = 'https://gitlab.yougov.net/{group}/{name}'
+nspkg_technique = 'managed'
+"""
+Does this package use "native" namespace packages or
+pkg_resources "managed" namespace packages?
+"""
 
 params = dict(
     name=name,
@@ -25,7 +30,10 @@ params = dict(
     url=url_tmpl.format(**locals()),
     packages=setuptools.find_packages(),
     include_package_data=True,
-    namespace_packages=name.split('.')[:-1],
+    namespace_packages=(
+        name.split('.')[:-1] if nspkg_technique == 'managed'
+        else []
+    ),
     python_requires='>=2.7',
     install_requires=[
     ],
