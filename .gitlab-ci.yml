@@ -2,3 +2,14 @@ image: ludditelabs/multipy
 
 test:
   script: tox
+
+release:
+  stage: deploy
+  before_script:
+  - python3.6 -m pip install wheel devpi-client
+  script:
+  - python3.6 -m devpi use https://devpi-master.yougov.net/root/yg/
+  - python3.6 -m devpi login $DEVPI_USERNAME --password $DEVPI_PASSWORD
+  - python3.6 -m devpi upload --formats bdist_wheel,sdist
+  only:
+  - tags
