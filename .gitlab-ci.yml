@@ -1,4 +1,4 @@
-image: ludditelabs/multipy
+image: registry.yougov.net/yougov/base
 
 test:
   script: tox
