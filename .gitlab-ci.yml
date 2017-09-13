@@ -11,6 +11,8 @@ release:
   script:
   - python3.6 -m devpi use https://devpi-master.yougov.net/root/yg/
   - python3.6 -m devpi login $DEVPI_USERNAME --password $DEVPI_PASSWORD
+  # workaround for devpi #395
+  - ln -s $(which python3.6) /usr/local/bin/python
   - python3.6 -m devpi upload --formats bdist_wheel,sdist --with-docs
   only:
   - tags
