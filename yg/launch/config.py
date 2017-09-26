@@ -8,6 +8,7 @@ import six
 import yaml
 import jaraco.collections
 
+
 class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
 	"""
 	A simple config dictionary implementation with YAML helpers
@@ -92,6 +93,7 @@ def obscure(src, sensitive_keys=['password']):
 			result[key] = '********'
 	return result
 
+
 def env_substitute(config, key):
 	"""
 	For the key in config, substutite $env:name or
@@ -108,7 +110,8 @@ def env_substitute(config, key):
 		return os.environ[var]
 
 	value = config.get(key, None)
-	if not isinstance(value, six.string_types): return
+	if not isinstance(value, six.string_types):
+		return
 	# allow the name to be specified as
 	#  $env:name or ${env:name with spaces and stuff}
 	pattern = re.compile(r'\$(?P<var>({env:[\w ()-]+})|(env:\w+))')
