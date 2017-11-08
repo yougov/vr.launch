@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Project skeleton maintained at kiln://support/skeleton
+# Project skeleton maintained at gitlab://support/skeleton
 # based on https://github.com/jaraco/skeleton
 
 import io
@@ -12,9 +12,13 @@ with io.open('README.rst', encoding='utf-8') as readme:
 
 group = 'support'
 name = 'yg.launch'
-dashname = name.replace('.', '-')
 description = ''
-url_tmpl = 'https://yougov.kilnhg.com/Code/Repositories/{group}/{dashname}'
+url_tmpl = 'https://gitlab.yougov.net/{group}/{name}'
+nspkg_technique = 'managed'
+"""
+Does this package use "native" namespace packages or
+pkg_resources "managed" namespace packages?
+"""
 
 params = dict(
     name=name,
@@ -26,7 +30,10 @@ params = dict(
     url=url_tmpl.format(**locals()),
     packages=setuptools.find_packages(),
     include_package_data=True,
-    namespace_packages=name.split('.')[:-1],
+    namespace_packages=(
+        name.split('.')[:-1] if nspkg_technique == 'managed'
+        else []
+    ),
     python_requires='>=2.7',
     install_requires=[
         'pyyaml',
@@ -37,12 +44,13 @@ params = dict(
         'testing': [
             'pytest>=2.8',
             'pytest-sugar',
+            'collective.checkdocs',
         ],
         'docs': [
-             'sphinx',
-             'jaraco.packaging>=3.2',
-             'rst.linker>=1.9',
-         ],
+            'sphinx',
+            'jaraco.packaging>=3.2',
+            'rst.linker>=1.9',
+        ],
     },
     setup_requires=[
         'setuptools_scm>=1.15.0',

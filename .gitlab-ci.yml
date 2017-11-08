@@ -1,0 +1,10 @@
+image: registry.yougov.net/yougov/base
+
+test:
+  script: tox
+
+release:
+  stage: deploy
+  script: tox -e release
+  only:
+  - tags
