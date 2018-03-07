@@ -13,7 +13,6 @@ with io.open('README.rst', encoding='utf-8') as readme:
 group = ''
 name = 'skeleton'
 description = ''
-url_tmpl = 'https://gitlab.yougov.net/{group}/{name}'
 nspkg_technique = 'managed'
 """
 Does this package use "native" namespace packages or
@@ -27,7 +26,7 @@ params = dict(
     author_email="dev@yougov.com",
     description=description or name,
     long_description=long_description,
-    url=url_tmpl.format(**locals()),
+    url='https://gitlab.yougov.net/{group}/{name}'.format(**locals()),
     packages=setuptools.find_packages(),
     include_package_data=True,
     namespace_packages=(
@@ -39,14 +38,21 @@ params = dict(
     ],
     extras_require={
         'testing': [
+            # upstream
             'pytest>=2.8',
             'pytest-sugar>=0.9.1',
             'collective.checkdocs',
+            'pytest-flake8',
+
+            # local
         ],
         'docs': [
+            # upstream
             'sphinx',
             'jaraco.packaging>=3.2',
             'rst.linker>=1.9',
+
+            # local
         ],
     },
     setup_requires=[
