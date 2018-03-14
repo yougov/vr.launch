@@ -1,3 +1,9 @@
+2.3
+===
+
+Refreshed project metadata including flake8 checks. Final release
+to be superseded by the new name, vr.launch.
+
 2.2.2
 =====
 
