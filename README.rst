@@ -1,6 +1,5 @@
----------
-yg.launch
----------
+.. image:: https://gitlab.yougov.net/support/yg.launch/badges/master/pipeline.svg
+   :target: https://gitlab.yougov.net/support/yg.launch/commits/master
 
 Deploying against Velociraptor? Need to load the config? It's easy::
 
