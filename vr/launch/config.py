@@ -82,7 +82,7 @@ def obscure(src, sensitive_keys=['password']):
     '********'
 
     >>> type(obscure(ConfigDict(d)))
-    <class 'yg.launch.config.ConfigDict'>
+    <class 'vr.launch.config.ConfigDict'>
     """
     result = copy.copy(src)
 

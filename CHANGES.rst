@@ -1,24 +1,4 @@
-2.3
-===
+v1.0.0
+======
 
-Refreshed project metadata including flake8 checks. Final release
-to be superseded by the new name, vr.launch.
-
-2.2.2
-=====
-
-Exclude jaraco.collections 1.2 (bad release).
-
-2.1
-===
-
-Removed deprecated dependencies and updated others.
-
-2.0
-===
-
-For a brief time (1.6), yg.launch supported inferring the type of
-overridden values in apply_environment_overrides from the original type.
-
-Now instead, environment variables are treated like YAML instead. This
-approach is safer and allows for more complex values.
+Initial release, based on yg.launch 2.3 at YouGov.

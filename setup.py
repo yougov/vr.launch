@@ -11,8 +11,8 @@ with io.open('README.rst', encoding='utf-8') as readme:
     long_description = readme.read()
 
 group = 'support'
-name = 'yg.launch'
-description = ''
+name = 'vr.launch'
+description = 'Facilities for launching apps under Velociraptor'
 nspkg_technique = 'managed'
 """
 Does this package use "native" namespace packages or
@@ -23,10 +23,10 @@ params = dict(
     name=name,
     use_scm_version=True,
     author="YouGov, Plc.",
-    author_email="dev@yougov.com",
+    author_email="open-source@yougov.com",
     description=description or name,
     long_description=long_description,
-    url='https://gitlab.yougov.net/{group}/{name}'.format(**locals()),
+    url='https://github.com/yougov/{name}'.format(**locals()),
     packages=setuptools.find_packages(),
     include_package_data=True,
     namespace_packages=(

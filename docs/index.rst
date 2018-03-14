@@ -1,4 +1,4 @@
-Welcome to skeleton documentation!
+Welcome to vr.launch documentation!
 ========================================
 
 .. toctree::
@@ -7,7 +7,12 @@ Welcome to skeleton documentation!
    history
 
 
-.. automodule:: skeleton
+.. automodule:: vr.launch.cmdline
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. automodule:: vr.launch.config
     :members:
     :undoc-members:
     :show-inheritance:
