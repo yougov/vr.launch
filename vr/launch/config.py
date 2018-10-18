@@ -44,23 +44,10 @@ class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
 
     def apply_environment_overrides(self):
         """
+        *Deprecated*
+
         Allow the environment to override keys in self if the vars match
         keys already present.
-
-        Consider if PORT_TEST is defined thusly in the environment:
-        >>> os.environ['PORT_TEST'] = '5000'
-
-        >>> d = ConfigDict(port_test='8010')
-        >>> d.apply_environment_overrides()
-        >>> d['port_test']
-        5000
-
-        Environment overrides should decode yaml.
-        >>> os.environ['PORT_TEST'] = '"5000"'
-        >>> d = ConfigDict(port_test=8010)
-        >>> d.apply_environment_overrides()
-        >>> d['port_test']
-        '5000'
         """
         warnings.warn(
             'apply_environment_overrides is deprecated '
