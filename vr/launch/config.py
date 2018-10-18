@@ -2,6 +2,7 @@ import os
 import re
 import copy
 import platform
+import warnings
 
 import six
 
@@ -61,6 +62,10 @@ class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
         >>> d['port_test']
         '5000'
         """
+        warnings.warn(
+            'apply_environment_overrides is deprecated '
+            'in favour of yamlenv environment interpolation',
+            DeprecationWarning)
         environ = self._case_insensitive_environ()
 
         matching_keys = [key for key in self if key in environ]
