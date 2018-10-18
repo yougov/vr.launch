@@ -2,10 +2,12 @@ import os
 import re
 import copy
 import platform
+import warnings
 
 import six
 
 import yaml
+import yamlenv
 import jaraco.collections
 
 
@@ -20,7 +22,12 @@ class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
 
     @classmethod
     def from_yaml_stream(cls, stream):
-        return cls(yaml.load(stream))
+        """
+        >>> os.environ['PORT_TEST'] = '5000'
+        >>> ConfigDict.from_yaml_stream('port_test: ${PORT_TEST}')
+        {'port_test': '5000'}
+        """
+        return cls(yamlenv.load(stream))
 
     @classmethod
     def from_velociraptor(cls, fallback=None):
@@ -55,6 +62,10 @@ class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
         >>> d['port_test']
         '5000'
         """
+        warnings.warn(
+            'apply_environment_overrides is deprecated '
+            'in favour of yamlenv environment interpolation',
+            DeprecationWarning)
         environ = self._case_insensitive_environ()
 
         matching_keys = [key for key in self if key in environ]

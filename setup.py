@@ -36,6 +36,7 @@ params = dict(
     python_requires='>=2.7',
     install_requires=[
         'pyyaml',
+        'yamlenv',
         'jaraco.collections!=1.2',
         'six',
     ],
