@@ -25,4 +25,8 @@ dictionary, so you can get the config values as items or as attributes::
 
     args.config.foo == args.config['foo']
 
+Config is loaded using `yamlenv <https://pypi.org/project/yamlenv/>`,
+so any YAML can reference environment variables and other YAML files
+to be interpolated.
+
 Enjoy!
