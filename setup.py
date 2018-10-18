@@ -3,14 +3,8 @@
 # Project skeleton maintained at gitlab://support/skeleton
 # based on https://github.com/jaraco/skeleton
 
-import io
-
 import setuptools
 
-with io.open('README.rst', encoding='utf-8') as readme:
-    long_description = readme.read()
-
-group = 'support'
 name = 'vr.launch'
 description = 'Facilities for launching apps under Velociraptor'
 nspkg_technique = 'managed'
@@ -25,7 +19,6 @@ params = dict(
     author="YouGov, Plc.",
     author_email="open-source@yougov.com",
     description=description or name,
-    long_description=long_description,
     url='https://github.com/yougov/{name}'.format(**locals()),
     packages=setuptools.find_packages(),
     include_package_data=True,
@@ -43,7 +36,7 @@ params = dict(
     extras_require={
         'testing': [
             # upstream
-            'pytest>=2.8',
+            'pytest>=3.5,!=3.7.3',
             'pytest-sugar>=0.9.1',
             'collective.checkdocs',
             'pytest-flake8',
@@ -65,6 +58,7 @@ params = dict(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
     ],
