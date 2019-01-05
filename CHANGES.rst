@@ -1,3 +1,8 @@
+v2.0.0
+======
+
+Switched to pkgutil-style namespace package.
+
 v1.1.0
 ======
 
