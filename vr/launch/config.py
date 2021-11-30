@@ -27,7 +27,7 @@ class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
         >>> ConfigDict.from_yaml_stream('port_test: ${PORT_TEST}')
         {'port_test': '5000'}
         """
-        return cls(yamlenv.load(stream))
+        return cls(yamlenv.load(stream, Loader=yaml.Loader))
 
     @classmethod
     def from_velociraptor(cls, fallback=None):
