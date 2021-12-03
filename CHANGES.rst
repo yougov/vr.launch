@@ -1,3 +1,9 @@
+v2.1.0
+======
+
+Added `PyYAML 6 <https://github.com/yaml/pyyaml/blob/master/CHANGES>`_
+support with backwards compatibility.
+
 v2.0.0
 ======
 
