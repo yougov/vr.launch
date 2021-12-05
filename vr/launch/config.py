@@ -25,7 +25,7 @@ class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
         """
         >>> os.environ['PORT_TEST'] = '5000'
         >>> ConfigDict.from_yaml_stream('port_test: ${PORT_TEST}')
-        {'port_test': '5000'}
+        {'port_test': 5000}
         """
         return cls(yamlenv.load(stream, Loader=yaml.Loader))
 
