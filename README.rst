@@ -1,16 +1,21 @@
-.. image:: https://img.shields.io/pypi/v/vr.launch.svg
-   :target: https://pypi.org/project/vr.launch
+.. image:: https://img.shields.io/pypi/v/skeleton.svg
+   :target: `PyPI link`_
 
-.. image:: https://img.shields.io/pypi/pyversions/vr.launch.svg
+.. image:: https://img.shields.io/pypi/pyversions/skeleton.svg
+   :target: `PyPI link`_
 
-.. image:: https://img.shields.io/travis/yougov/vr.launch/master.svg
-   :target: https://travis-ci.org/yougov/vr.launch
+.. _PyPI link: https://pypi.org/project/skeleton
 
-.. .. image:: https://img.shields.io/appveyor/ci/yougov/vr.launch/master.svg
-..    :target: https://ci.appveyor.com/project/yougov/vr.launch/branch/master
+.. image:: https://github.com/jaraco/skeleton/workflows/Automated%20Tests/badge.svg
+   :target: https://github.com/jaraco/skeleton/actions?query=workflow%3A%22Automated+Tests%22
+   :alt: Automated Tests
 
-.. .. image:: https://readthedocs.org/projects/vrlaunch/badge/?version=latest
-..    :target: https://vrlaunch.readthedocs.io/en/latest/?badge=latest
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/psf/black
+   :alt: Code style: Black
+
+.. .. image:: https://readthedocs.org/projects/skeleton/badge/?version=latest
+..    :target: https://skeleton.readthedocs.io/en/latest/?badge=latest
 
 Deploying against Velociraptor? Need to load the config? It's easy::
 
