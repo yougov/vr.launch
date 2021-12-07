@@ -15,6 +15,7 @@ class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
     """
     A simple config dictionary implementation with YAML helpers
     """
+
     @classmethod
     def from_yaml(cls, filename):
         with open(filename) as f:
@@ -52,7 +53,8 @@ class ConfigDict(jaraco.collections.ItemsAsAttributes, dict):
         warnings.warn(
             'apply_environment_overrides is deprecated '
             'in favour of yamlenv environment interpolation',
-            DeprecationWarning)
+            DeprecationWarning,
+        )
         environ = self._case_insensitive_environ()
 
         matching_keys = [key for key in self if key in environ]

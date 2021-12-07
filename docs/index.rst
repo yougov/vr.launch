@@ -1,5 +1,5 @@
-Welcome to vr.launch documentation!
-========================================
+Welcome to |project| documentation!
+===================================
 
 .. toctree::
    :maxdepth: 1

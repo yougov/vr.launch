@@ -8,6 +8,7 @@ class MergeDictAction(argparse.Action):
     An argparse action that will merge the incoming dictionary into the
     destination.
     """
+
     def __call__(self, parser, namespace, values, option_string=None):
         assert isinstance(values, dict), "Values must be dict"
         getattr(namespace, self.dest).update(values)
@@ -15,8 +16,11 @@ class MergeDictAction(argparse.Action):
 
 def add_config_arg(parser):
     parser.add_argument(
-        '-c', '--config', help="Filename for YAML config",
-        action=MergeDictAction, default=config.ConfigDict(),
+        '-c',
+        '--config',
+        help="Filename for YAML config",
+        action=MergeDictAction,
+        default=config.ConfigDict(),
         type=config.ConfigDict.from_yaml,
     )
 
